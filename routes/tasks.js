@@ -5,7 +5,7 @@ const auth = require("../middlewares/auth");
 const admin = require("../middlewares/admin");
 var { Task } = require("../models/task");
 //get products
-router.get("/", async (req, res) => {
+router.get("/todos", async (req, res) => {
   let page = Number(req.query.page ? req.query.page : 1);
   let perPage = Number(req.query.perPage ? req.query.perPage : 10);
   let skipRecords = perPage * (page - 1);
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
   return res.send({ total, tasks });
 });
 //get single products
-router.get("/:id", async (req, res) => {
+router.get("/todos/:id", async (req, res) => {
   try {
     let task = await Task.findById(req.params.id);
     if (!task)
@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 //update a record
-router.put("/:id", validateTask, async (req, res) => {
+router.put("/todos/:id", validateTask, async (req, res) => {
   let task = await Task.findById(req.params.id);
   task.title = req.body.title;
   task.date = req.body.date;
@@ -34,12 +34,12 @@ router.put("/:id", validateTask, async (req, res) => {
   return res.send(task);
 });
 //update a record
-router.delete("/:id", async (req, res) => {
+router.delete("/todos/:id", async (req, res) => {
   let task = await Task.findByIdAndDelete(req.params.id);
   return res.send(task);
 });
 //Insert a record
-router.post("/", validateTask, async (req, res) => {
+router.post("/todos", validateTask, async (req, res) => {
   let task = new Task();
   task.title = req.body.title;
   task.date = req.body.date;
