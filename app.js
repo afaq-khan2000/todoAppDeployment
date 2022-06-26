@@ -34,7 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/todos', tasksRouter);
+app.use('/', tasksRouter);
 app.use('/users', usersRouter);
 
 // Serve static files from the React frontend app
