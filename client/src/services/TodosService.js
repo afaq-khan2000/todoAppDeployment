@@ -3,12 +3,12 @@ class TodosService extends GenericService {
   constructor() {
     super();
   }
-  addTodo = (data) => this.post("todos", data);
-  deleteTodo = (_id) => this.delete("todos/" + _id);
-  updateTodo = (_id, data) => this.put("todos/" + _id, data);
+  addTodo = (data) => this.post("tasks", data);
+  deleteTodo = (_id) => this.delete("tasks/" + _id);
+  updateTodo = (_id, data) => this.put("tasks/" + _id, data);
   getTodos = (page = 1, perPage = 10) =>
-    this.get("todos?page=" + page + "&perPage=" + perPage);
-  getSingleTodo = (id) => this.get("todos/" + id);
+    this.get("tasks?page=" + page + "&perPage=" + perPage);
+  getSingleTodo = (id) => this.get("tasks/" + id);
 }
 
 let todoService = new TodosService();
