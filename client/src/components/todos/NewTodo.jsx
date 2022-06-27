@@ -98,7 +98,7 @@ export default function NewTodo(props) {
                   .addTodo({ title, date, isCompleted })
                   .then((data) => {
                     console.log(data);
-                    navigate("/todos");
+                    navigate("/todos/1");
                   })
                   .catch((err) => {
                     console.log(err);

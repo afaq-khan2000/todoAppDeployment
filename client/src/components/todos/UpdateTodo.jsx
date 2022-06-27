@@ -102,7 +102,7 @@ export default function UpdateTodo(props) {
                 .updateTodo(params.id, { title, date, isCompleted })
                 .then((data) => {
                   console.log(data);
-                  navigate("/todos");
+                  navigate("/todos/1");
                 })
                 .catch((err) => {
                   console.log(err);

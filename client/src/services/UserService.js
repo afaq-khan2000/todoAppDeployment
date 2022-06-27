@@ -8,7 +8,7 @@ class UserService extends GenericService {
     new Promise((resolve, reject) => {
       this.post("users/login", { email, password })
         .then((token) => {
-          window.localStorage.setItem("token", token);
+          localStorage.setItem("token", token);
           resolve(token);
         })
         .catch((err) => {
@@ -16,16 +16,16 @@ class UserService extends GenericService {
         });
     });
   register = (name, email, password) =>
-    this.post("users/register", { password, email, name });
+    this.post("users/register", { name, email, password });
   logout = () => {
-    window.localStorage.removeItem("token");
+    localStorage.removeItem("token");
   };
   isLoggedIn = () => {
-    return window.localStorage.getItem("token") ? true : false;
+    return localStorage.getItem("token") ? true : false;
   };
   getLoggedInUser = () => {
     try {
-      const jwt = window.localStorage.getItem("token");
+      const jwt = localStorage.getItem("token");
       return jwtDecode(jwt);
     } catch (ex) {
       return null;
