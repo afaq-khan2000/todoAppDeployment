@@ -4,8 +4,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import userService from "../../services/UserService";
 
 export default function Login() {
-  const [email, setEmail] = useState("qlu@qlu.com");
-  const [password, setPassword] = useState("qlu123");
+  const [email, setEmail] = useState("kafaq885@gmail.com");
+  const [password, setPassword] = useState("afaq123");
 
   return (
     <Container fluid="md" style={{ marginTop: "150px" }}>
